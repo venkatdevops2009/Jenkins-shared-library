@@ -258,12 +258,13 @@ def call (Map configMap){
 
         post {
             success {
-                slackSend(
-                    channel: '#jenkins-alerts',
-                    color: 'good',
-                    tokenCredentialId: 'slack-token',
-                    message: "✅ *${env_COMPONENT ?: component}* ${env_ENVIRONMENT} deploy succeeded — commit `${env_COMMIT_ID ?: env.GIT_COMMIT}` (<${env.BUILD_URL}console|console>)"
-                ) 
+                success {
+                 slackSend(
+                     channel: '#jenkins-alerts',
+                     color: 'good',
+                     tokenCredentialId: 'slack-token',
+                     message: "✅ *${component}* pipeline succeeded — build #${env.BUILD_NUMBER} (<${env.BUILD_URL}console|console>)"
+                 )
                 echo "success"
             }
             failure {
@@ -271,9 +272,9 @@ def call (Map configMap){
                     channel: '#jenkins-alerts',
                     color: 'danger',
                     tokenCredentialId: 'slack-token',
-                    message: "❌ *${env_COMPONENT ?: component}* ${env_ENVIRONMENT} deploy failed — commit `${env_COMMIT_ID ?: env.GIT_COMMIT}` (<${env.BUILD_URL}console|console>)"
+                    message: "❌ *${component}* pipeline failed — build #${env.BUILD_NUMBER} (<${env.BUILD_URL}console|console>)"
                 ) 
-                echo "failure"
+                echo "failed"
             }
         }
     }
