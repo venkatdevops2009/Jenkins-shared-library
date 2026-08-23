@@ -35,7 +35,7 @@ def call (Map configMap){
             component = configMap.get("component")
             org = "venkatdevops2009"
             JIRA_SITE = "roboshop-jira"
-            jiraProjectKey = "DAWS90S"
+            jiraProjectKey = "PIRIDISHOP"
         }
         options {
             disableConcurrentBuilds()
