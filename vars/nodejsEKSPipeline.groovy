@@ -7,10 +7,10 @@ def call (Map configMap){
         }
         environment {
             def appVersion = ""
-            acc_id = "160885265516"
+            acc_id = "843916760700"
             project = configMap.get("project")
             component = configMap.get("component")
-            org = "daws-90s"
+            org = "venkatdevops2009"
         }
         options {
             disableConcurrentBuilds()
