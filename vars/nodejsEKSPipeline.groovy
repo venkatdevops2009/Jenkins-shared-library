@@ -257,8 +257,7 @@ def call (Map configMap){
         }
 
         post {
-            success {
-                success {
+            success {                
                  slackSend(
                      channel: '#jenkins-alerts',
                      color: 'good',
